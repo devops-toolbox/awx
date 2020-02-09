@@ -8,10 +8,10 @@ awx: Awx
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.awx](https://galaxy.ansible.com/devops-toolbox.awx)
+[https://galaxy.ansible.com/devopstoolbox.awx](https://galaxy.ansible.com/devopstoolbox.awx)
 
 ```bash
-ansible-galaxy install devops-toolbox.awx
+ansible-galaxy install devopstoolbox.awx
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: awx is configured
       import_role:
-        name: devops-toolbox.awx
+        name: devopstoolbox.awx
       vars:
         awx_packages_state: present
         awx_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
