@@ -1,0 +1,27 @@
+---
+# Install awx packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ awx_packages_remove }}"
+    state: absent
+  become: true
+  when: awx_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ awx_packages_repos }}"
+    state: "{{ awx_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ awx_packages_prereq }}"
+    state: "{{ awx_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ awx_packages_install }}"
+    state: "{{ awx_packages_state }}"
+  become: true

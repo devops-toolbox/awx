@@ -1,0 +1,10 @@
+---
+# Template configuration files for awx
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ awx_templates_copy }}"
+  when: awx_copy_templates

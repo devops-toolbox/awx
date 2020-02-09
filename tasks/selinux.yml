@@ -1,0 +1,13 @@
+---
+# Template configuration files for awx
+
+- name: Set SELinux booleans
+  seboolean:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    persistent: "{{ item.persistent | default('false') }}"
+  loop: "{{ awx_selinux_booleans }}"
+  when:
+    - ansible_selinux.status == "enabled"
+    - awx_enable_selinux
+  become: true
